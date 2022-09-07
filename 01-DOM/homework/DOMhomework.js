@@ -9,7 +9,7 @@ let toDoItems = []
 // Tu código acá:
 
 let span = document.querySelector('#createdBy')
-span.innerHTML = span.innerHTML + ' Estiven'
+span.innerHTML = span.innerHTML + ' Estiven Muñoz'
 
 
 // Crear una clase denominada 'ToDo' cuyo constructor debe recibir un único parámetro del tipo string
