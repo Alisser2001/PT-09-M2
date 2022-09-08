@@ -19,10 +19,10 @@ span.innerHTML = span.innerHTML + ' Estiven Muñoz'
 // 2) 'complete'    : debe setearse en false
 // Ayuda: usar 'this' en el constructor
 
-function ToDo (description) {
+function ToDo (description) { //Crea un objeto que representará cada pendiente 
   // Tu código acá:
-  this.description = description;
-  this.complete = false
+  this.description = description; //Tendrá una descricpción (pendiente) 
+  this.complete = false //Y un estado complete que representa si está tachado o no el pendiente
 }
 
 
@@ -32,7 +32,7 @@ function ToDo (description) {
 
 // Tu código acá:
 
-ToDo.prototype.completeToDo = function() {
+ToDo.prototype.completeToDo = function() { //Cambiará el estado del pendiente
   this.complete = !this.complete
 }
 
@@ -57,25 +57,26 @@ ToDo.prototype.completeToDo = function() {
 
 function buildToDo(todo, index) {
   // Tu código acá:
-  let toDoShell = document.createElement('div');
-  toDoShell.className = 'toDoShell'
-  let toDoText = document.createElement('span');
-  toDoText.innerHTML = todo.description;
-  toDoText.id = index
+  let toDoShell = document.createElement('div'); //Crea un nuevo div para añadir los pendientes ingresados
+  toDoShell.className = 'toDoShell' //Le asigna la clase toDoShell que enviará los pendientes
+  let toDoText = document.createElement('span'); //Crea un nuevo span para colocar cada pendiente
+  toDoText.innerHTML = todo.description; //Se le asigna al span la decripción del pendiente
+  toDoText.id = index //Se le asigna el id a toDoText como el index pasado
   if(todo.complete) {
-    toDoText.className = 'completeText'
+    toDoText.className = 'completeText' //Si el pendiente está completo, se le asgina la clase completeText
   } 
-  toDoShell.appendChild(toDoText)
-  toDoText.addEventListener('click', completeToDo)
-  return toDoShell
+  toDoShell.appendChild(toDoText) //Se le asigna a toDoShell un hijo toDoText
+  toDoText.addEventListener('click', completeToDo) //Al hacer el evento click, se completa el pendiente (se tacha)
+  return toDoShell //Se retorna el elemento enviado
 }
 
 // La función 'buildToDos' debe crear un array de objetos toDo y devolverlo
 // Recibirá como parámetro un array de objetos ToDo
 // Utilizar el método map usando la función previamente creada ('buildToDo')
-// Devolver el nuevo array
+// Devolver el nuevo array 
 
-function buildToDos(toDos) {
+function buildToDos(toDos) { //Recibe un array de objetos tipo ToDO (creadas a partir de ese contructor)
+  /*Crea un array y le pasa los valores que devuelve la función buildToDo*/
   // Tu código acá:
   let arr = toDos.map((todo, i)=>{
     return buildToDo(todo, i)
@@ -100,9 +101,9 @@ function displayToDos() {
   // Tu código acá:
   let toDoContainer = document.querySelector('#toDoContainer');
   toDoContainer.innerHTML = "";
-  let build = buildToDos(toDoItems);
+  let build = buildToDos(toDoItems); //le pasamos a la función buildToDos el array creado en un inicio y se asigna lo que retorna 
   for (let i=0; i<build.length; i++) {
-    toDoContainer.appendChild(build[i])
+    toDoContainer.appendChild(build[i]) //Recorremos el array build y cada elemento lo asignamos como hijo de toDoContainer (donde estarán los pendientes)
   }
 }
 
@@ -118,14 +119,14 @@ function displayToDos() {
 //  se borre lo que se encontraba escrito)
 //  4) Llamar a la función displayToDos para que se actualicen los toDos mostrados en pantalla
 
-function addToDo() {
+function addToDo() { //Esta función crea nuevos objetos toDo y los pushea en el array del inicio
   // Tu código acá:
   let input = document.querySelector('#toDoInput');
   if(input.value !== '') {
     let toDo = new ToDo(input.value)
     toDoItems.push(toDo)
     input.value = ""
-    displayToDos()
+    displayToDos() //LA función displayToDos se encarga de actualizar los elementos en pantalla
   }
 }
 
@@ -136,7 +137,8 @@ function addToDo() {
 
 // Tu código acá:
 
-let add = document.querySelector('#addButton');
+let add = document.querySelector('#addButton'); /*Al hacer click en el botón 'agregar', se crea un evento que llama a la función que
+añade nuevos objetos toDo*/
 add.addEventListener('click', addToDo)
 
 // La función completeToDo se va a ejecutar cuando queramos completar un todo
@@ -154,10 +156,10 @@ add.addEventListener('click', addToDo)
 
 function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
-  const index = event.target.id;
+  const index = event.target.id; //Cada objeto tiene un id unico, se extrae dicho id que hace las veces de un iterador
   // Tu código acá:
-  toDoItems[index].completeToDo();
-  displayToDos();
+  toDoItems[index].completeToDo(); //Le cambia al valor al pendiente (de no tachado, a tachado)
+  displayToDos(); //Actualiza los elementos en pantalla
 }
 
 // Una vez que llegaste a este punto verificá que todos los tests pasen
