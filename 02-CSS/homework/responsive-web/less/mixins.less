@@ -1,1 +1,23 @@
 // Mixins acá
+.btn(@color, @color-hover) {
+    background-color: @color;
+    border-radius: 10px;
+    font-size: 1.2vw;
+    color: @color-hover;
+    border: 1px black solid;
+    padding: 1vw;
+    width: 30%;
+    cursor: pointer;
+    font-weight: 300;
+    &:hover{
+        font-weight: bold;
+        background-color: @color-hover;
+        color: @color;
+    }
+}
+.flex(@direction: row, @justify: center, @align: center) {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: @justify;
+    align-items: @align;
+}

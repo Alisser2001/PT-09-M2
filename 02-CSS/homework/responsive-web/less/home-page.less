@@ -1,5 +1,19 @@
 // Conteindo del Home
-
+img{
+  justify-content: center;
+  border-radius: 15px;
+  margin-top: 0.6vw;
+  margin-bottom: 0.8vw;
+}
+.intro{
+  img{
+    @media @phone{
+      width: 99%;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}
 .home {
 
   .intro {
@@ -24,6 +38,15 @@
       margin: 20px 2.5%;
       border-radius: 20px;
       height: 100%;
+    }
+
+    @media @phone{
+      .ondas, .tecnologia{
+        display: none;
+      }
+      .auricular{
+        width: 100%;
+      }
     }
   }
 
@@ -58,6 +81,16 @@
       }
 
       .btn {
+        .btn(@btn-bg-color, white);
+        @media @phone{
+          width: 100%;
+          text-align: center;
+          font-size: 3vw;
+        }
+      }
+      @media @phone{
+        width: 100%;
+        padding-top: 3vw;
       }
     }
 
@@ -70,6 +103,14 @@
         height: auto;
         border-radius: 10px;
       }
+      @media @phone{
+        width: 100%;
+        margin-top: 0;
+      }
+    }
+    @media @phone{
+      .flex(@direction: column-reverse);
+      width: 100%;
     }
   }
 }

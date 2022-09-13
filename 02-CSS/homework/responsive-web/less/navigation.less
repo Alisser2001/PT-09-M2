@@ -1,1 +1,45 @@
 // Código de Nav acá
+nav{
+    .flex(@direction: column);
+    padding: 1vw;
+    background-color: @nav-bg;
+    border: @nav-border solid 1px;
+    h1{
+        padding: 0.8vw;
+        font-size: 2vw;
+        @media @phone{
+            font-size: 5vw;
+            margin: 1.5vw;
+        }
+    }
+    ul{
+        .flex(@justify: space-around);
+        width: 50%;
+        li{
+            .flex(@justify: space-around);
+            a{
+                font-size: 1.2vw;
+                font-weight: bold;
+                color: @nav-font;
+                text-decoration: none;
+                @media @phone{
+                    font-size: 3vw;
+                }
+            }
+            @media @phone{
+                height: 5vw;
+            }
+        }
+        @media @phone{
+            width: 100%;
+            .flex(@justify: space-around);
+        }
+        @media @phone{
+            padding-bottom: 2vw;
+        }
+    }
+    @media @phone{
+        height: 15vw;
+        width: 100vw;
+    }
+}
