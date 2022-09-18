@@ -1,4 +1,13 @@
 var URL = 'http://localhost:5000/amigos';
+
+/*La función selectora de ES6 $() se encarga de elegir todos los elementos del tipo por parametro
+que se le pase:
+
+$(*) => Selecciona todos los elementos del documento
+$(.class) => Reune todos los elementos con la clase .class
+$(#id) => Toma el elemento del id correspondiente
+$(element) => Reune todos los elementos del tipo element en el documento*/
+
 $('#boton').click(()=>{
     $('#lista').empty();
     $.get(`${URL}`, (friends)=>{
