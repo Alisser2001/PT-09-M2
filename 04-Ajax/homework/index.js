@@ -25,15 +25,23 @@ $('#search').click(()=>{
     let id= $('#input').val();
     let span = document.getElementById('amigo');
     if(id){
-        $.get(`${URL}`, (friends)=>{
+        /*$.get(`${URL}`, (friends)=>{ 
             for(let i=0; i<friends.length; i++) {
-                if(friends[i].id == id){
+                if(friends[i].id == id){                             Esta sería una forma de hacerlo sin Ajax
                     span.innerHTML = friends[i].name;
                 }
             }
+        })*/
+        $.ajax({
+            url: `${URL}/${id}`, // http://localhost:5000/amigos/id
+            type: 'GET',
+            success: (friend)=>{
+                $('#amigo').text(friend.name);
+            }
         })
     } else {
-        span.innerHTML = 'Ingrese un id';
+        //span.innerHTML = 'Ingrese un id';
+        $('#amigo').text('Ingrese un id');
     }
 })
 
