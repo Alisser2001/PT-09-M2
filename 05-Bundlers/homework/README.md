@@ -55,7 +55,7 @@ Esto es a lo que nos referimos cuando hablamos de IIFEs - nos dan una forma de i
 
 Por mucho tiempo, este patrón fue fuertemente confiado en proveer modularidad en Javascript, porque cualquier variable declarada dentro de un IIFE pertenecería solo al scope de esa función - no contaminarían el scope global.
 
-Vamos a ver porque eso es importante en un momento - por ahora, si te sentís cómodo en tu entendimiento de como operan las IIFE operan, estas listo para continuar leyendo!
+Vamos a ver porque eso es importante en un momento - por ahora, si te sentís cómodo en tu entendimiento de como operan las IIFE, estas listo para continuar leyendo!
 
 ### Script Tags y Browser Javascript
 

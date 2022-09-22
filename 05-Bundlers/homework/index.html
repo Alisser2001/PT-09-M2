@@ -3,7 +3,7 @@
 
 <head>
     <meta charset=UTF-8>
-    <link href="style.css" type="text/css" rel="stylesheet">
+    <link href="./browser/style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -20,10 +20,12 @@
         <div class="marker" id="brown"></div>
     </div>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="event-emitter.js"></script>
-    <script src="whiteboard.js"></script>
-    <script src="app.js"></script>
+    <script src="./browser/bundle.js"></script>
+    <!-- /socket.io/socket.io.js crea window.io -->
+    <!-- event-emitter.js crea window.EventEmitter -->
+    <!-- whiteboard.js crea window.whiteboard con el constructor window.EventEmitter requerido de event-emitter.js -->
+    <!-- app.js necesita window.whiteboard de whiteboard.js y window.io de /socket.io/socket.io.js -->
 </body>
 
 </html>
+
