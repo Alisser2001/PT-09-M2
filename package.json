@@ -27,6 +27,7 @@
     "markdown-it": "^12.3.0",
     "markdown-it-anchor": "^8.4.1",
     "markdown-it-highlightjs": "^3.5.0",
+    "nodemon": "^2.0.20",
     "run": "^1.4.0",
     "test": "^3.2.1"
   }
