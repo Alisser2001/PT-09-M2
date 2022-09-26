@@ -2,5 +2,11 @@ import React from 'react';
 
 export default function SearchBar(props) {
   // acá va tu código
-  return <div>Search Bar Component</div>
+  let search = props.onSearch;
+  return (
+    <div>
+      <input type="text" value="Ciudad..."></input>
+      <button onClick={search('London')}>Agregar</button>
+    </div>
+  )
 };
