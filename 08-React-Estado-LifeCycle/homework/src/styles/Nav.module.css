@@ -1,0 +1,20 @@
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+.logo{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    margin: 1vw 42vw 1vw 1vw;
+}
+.logo>p{
+    display: flex;
+    color: white;
+    margin: 0 1vw;
+    font-size: 1.5vw;
+    align-items: center;
+    text-align: center;
+}

@@ -1,0 +1,44 @@
+.container{
+    width: 22vw;
+    border: 1px gray solid;
+    margin: 0 2vw 2vw 2vw;
+    border-radius: 0.3vw;
+}
+.h1{
+    font-size: 2.5vw;
+    color: white;
+}
+.h2{
+    margin: 2vw 1vw;
+    font-size: 2vw;
+    color: white;
+}
+.p{
+    color: white;
+}
+.img{
+    margin-top: 2vw;
+}
+.info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 2vw;
+}
+.btnClose{
+    background-color: red;
+    border-radius: 0.3vw;
+    border: none;
+    padding: 0 0.6vw;
+    cursor: pointer;
+}
+.btnClose:hover{
+    background-color: white;
+    color: red;
+}
+.contBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0.5vw;
+}
