@@ -1,3 +1,28 @@
-#logoHenry {
-  margin-right: 20px;
+.header{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: 1px rgba(255, 99, 21, 1) solid;
+}
+.logo{
+  display: flex;
+  flex-direction: row;
+  width: 35vw;
+  margin: 1vw 1vw 1vw 1vw;
+}
+.aboutNav{
+  font-size: 1.8vw;
+  margin: 1vw 1vw 0 0;
+  color: rgba(255, 99, 21, 1);
+}
+.logo>p{
+  display: flex;
+  color: white;
+  margin: 0 1vw;
+  font-size: 1.5vw;
+  align-items: center;
+  text-align: center;
+  color: rgba(255, 99, 21, 1);
+  width: 100%;
 }

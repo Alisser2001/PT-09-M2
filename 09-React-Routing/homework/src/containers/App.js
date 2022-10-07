@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
-
 import './App.css';
-import Nav from '../components/Nav.jsx';
-import Cards from '../components/Cards.jsx';
-
-const apiKey = 'Aqui va la API key que creaste';
+import Cards from '../components/Cards';
+import Nav from '../components/Nav';
+import About from '../components/About';
+import Ciudad from '../components/Ciudad'
+import { Route, Routes} from 'react-router-dom';
 
 function App() {
+
+  let apiKey = '4ae2636d8dfbdc3044bede63951a019b'
   const [cities, setCities] = useState([]);
-  function onClose(id) {
-    setCities(oldCities => oldCities.filter(c => c.id !== id));
-  }
+
   function onSearch(ciudad) {
-    //Llamado a la API del clima
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}`)
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`)
       .then(r => r.json())
       .then((recurso) => {
-        if(recurso.main !== undefined){
+        if (recurso.main !== undefined) {
           const ciudad = {
             min: Math.round(recurso.main.temp_min),
             max: Math.round(recurso.main.temp_max),
@@ -30,30 +29,32 @@ function App() {
             latitud: recurso.coord.lat,
             longitud: recurso.coord.lon
           };
-          setCities(oldCities => [...oldCities, ciudad]);
+          setCities([...cities, ciudad]);
         } else {
           alert("Ciudad no encontrada");
         }
       });
   }
-  function onFilter(ciudadId) {
-    let ciudad = cities.filter(c => c.id === parseInt(ciudadId));
-    if(ciudad.length > 0) {
-        return ciudad[0];
-    } else {
-        return null;
-    }
+
+  function onClose(id) {
+    setCities(cities => cities.filter(c => c.id !== id))
   }
+
+
   return (
     <div className="App">
-      <Nav onSearch={onSearch}/>
-      <div>
-        <Cards
-          cities={cities}
-          onClose={onClose}
+      <Nav onSearch={onSearch} />
+      <Routes>
+        <Route
+          exact path={'/'}
+          element={<Cards cities={cities} onClose={onClose}/>}
         />
-      </div>
-      <hr />
+        <Route
+          exact path={'/about'}
+          element={<About />}
+        />
+        <Route path={'/ciudad/:cityId'} element={<Ciudad cities={cities}/>} />
+      </Routes>
     </div>
   );
 }

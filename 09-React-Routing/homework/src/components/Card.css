@@ -1,20 +1,44 @@
-.card {
-  margin: 20px;
-  width: 18rem;
+.contai{
+  width: 22vw;
+  border: 1px rgba(255, 99, 21, 1) solid;
+  margin: 0 2vw 2vw 2vw;
+  border-radius: 0.3vw;
 }
-
-.card-title {
-  margin-bottom: 15px;
+.h1{
+  font-size: 2.5vw;
+  color: white;
 }
-
-#closeIcon {
+.h2{
+  margin: 2vw 1vw;
+  font-size: 2vw;
+  color: rgba(255, 99, 21, 1);
+}
+.p{
+  color: white;
+}
+.img{
+  margin-top: 2vw;
+}
+.info{
   display: flex;
-  justify-content: flex-end;
-  margin-right: 8px;
-  margin-top: 8px;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 2vw;
 }
-
-.card-body {
-  margin-top: 0px !important;
-  padding-top: 0px !important;
+.btnClose{
+  background-color: rgba(255, 99, 21, 1);
+  border-radius: 0.3vw;
+  border: none;
+  padding: 0 0.6vw;
+  cursor: pointer;
+}
+.btnClose:hover{
+  background-color: white;
+  color: red;
+}
+.contBtn{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 0.5vw;
 }
