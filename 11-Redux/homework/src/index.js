@@ -1,17 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import Counter from './components/Counter';
 import counter from './reducers';
+import * as actions from './actions/index';
 
 // Esta línea instancia nuestro store central de Redux.
 // La función `createStore` recibe el reducer
 // que es responsable de la actualización del store , junto
 //con cualquier estado inicial con el que queramos que
 //empiece el store (que en este caso es ninguno).
+//Como solo tenemos un reducer en este caso, sólo combinamos ese
 const store = createStore(counter);
-
+store.dispatch(actions.increment());
+store.dispatch(actions.decrement());
 // Aquí, envolvemos nuestro componente principal React dentro de las etiquetas del Provider,
 // que vienen del paquete react-redux.
 // Esto es necesario porque el store necesita saber hacia dónde está pasando su estado. 

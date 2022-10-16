@@ -18,11 +18,11 @@ class Counter extends Component {
         return (
             <p>
                 Clickeado: {this.props.count} veces
-                <button onClick={() => {/* Completar */ }}>
-                    + {/* Incremeta */}
+                <button onClick={() => this.props.increment(this.props.count)}>
+                    + 
                 </button>
-                <button onClick={() => {/* Completar */ }}>
-                    -  {/* Decrementa */}
+                <button onClick={() => this.props.decrement(this.props.count)}>
+                    -  
                 </button>
                  {/* Si quieres hacer los extra credit puede descomentar las lineas de abajo */}
                 {/* <button onClick={this.incrementIfOdd}>
@@ -41,6 +41,7 @@ class Counter extends Component {
 // este componente recibe el estado completo.
 // Sin embargo, en una aplicación redux más compleja,
 // recibiría sólo las partes relevantes que necesita del objeto de estado.
+
 const mapStateToProps = (state) => {
     return {
         count: state.count
@@ -48,7 +49,17 @@ const mapStateToProps = (state) => {
 };
 
 // Se llama a la función de connect para que este componente conozca el resto de la arquitectura de redux.
-// Sin esto, este componente es sólo un componente tonto de React.
-//Pasamos todas las funciones que dependen de Redux, junto con el propio componente,
+// Sin esto, este componente es sólo un componente tonto de React (componente sin lógica).
+// Pasamos todas las funciones que dependen de Redux, junto con el propio componente,
 // para que Redux se dé a conocer a este componente.
+
 export default connect(mapStateToProps, { increment, decrement })(Counter);
+
+//Tanto el estado como las funciones para cambiarlo se pasan a las props del componente
+//Por medio del connect y con ayuda de la función mapStateToProps, que especifica qué estado y actions
+//Corresponden a este estado
+
+//El connect recibe dos parametros en parentesis separados; el segundo lleva el componente que vamos a
+//Conectar con nuestro store; el primer parentesis, a su vez, lleva dos parametros: el primero llevará
+//Un valor que queramos rescatar del store (null de ser nada), como cuando se desetructura un objeto; 
+//El segundo llevará el nuevo valor
